@@ -1,13 +1,14 @@
 import { Column, PrimaryGeneratedColumn, PrimaryColumn } from 'typeorm'
 import { UpdateableEntity } from './updateable.abstract';
-import { IsUUID, IsUrl, IsOptional } from "class-validator";
+import { IsUUID, IsUrl, IsOptional, MinLength } from "class-validator";
 
 export abstract class SlugeableEntity extends UpdateableEntity {
     @PrimaryGeneratedColumn('uuid')
     @IsUUID()
     id: string;
 
-    @Column('varchar', { length: 255, unique: true})
+    @Column('varchar', { length: 255})
+    @MinLength(4)
     name: string;
 
     @PrimaryColumn()
