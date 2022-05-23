@@ -1,6 +1,6 @@
 {
   "name": "ydr-nest-common",
-  "version": "1.0.18",
+  "version": "  ",
   "description": "Common code between nest microservices",
   "main": "dist/index.js",
   "scripts": {
