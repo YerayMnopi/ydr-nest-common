@@ -3,7 +3,7 @@ import { TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
 
 export const ormConfig: TypeOrmModuleAsyncOptions = {
   imports: [ConfigModule],
-  useFactory: (configService: ConfigService, e2e = false) => ({
+  useFactory: (configService: ConfigService) => ({
     type: 'postgres',
     host: configService.get('POSTGRES_HOST'),
     port: parseInt(configService.get('POSTGRES_PORT'), 10),

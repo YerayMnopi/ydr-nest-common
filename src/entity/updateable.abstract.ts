@@ -1,23 +1,22 @@
-import { Column, BeforeUpdate } from 'typeorm';
-import { IsDate } from "class-validator";
+import { Column, BeforeInsert, BeforeUpdate, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { IsDate, IsUUID } from "class-validator";
 
 export abstract class UpdateableEntity {
+    @PrimaryGeneratedColumn('uuid')
+    @IsUUID()
+    id: string;
 
-    @Column({type: 'date', update: false, default: new Date()})
+    @Column({type: 'timestamp', update: false, default: new Date()})
     @IsDate()
+    @CreateDateColumn()
     createdAt: Date;
 
-    @Column('date', {default: new Date()})
+    @Column('timestamp', {default: new Date()})
     @IsDate()
+    @UpdateDateColumn()
     updatedAt: Date;
 
-    @Column('date', {nullable: true})
+    @Column('timestamp', {nullable: true})
     @IsDate()
     deletedAt: Date;
-
-    @BeforeUpdate()
-    setUpdatedAt() {
-      this.updatedAt = new Date();
-    }
-  
 }
