@@ -52,7 +52,7 @@
     "cache-manager": "^3.4.0",
     "cache-manager-redis-store": "^2.0.0",
     "class-transformer": "^0.2.3",
-    "class-validator": "^0.12.2",
+    "class-validator": "^0.14.0",
     "jest": "^25.1.0",
     "neo4j-driver": "^4.2.2",
     "passport": "^0.4.1",
